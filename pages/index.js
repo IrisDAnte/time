@@ -145,11 +145,17 @@ export default function Home() {
                 <meta name='keywords' content='Time, time, code' />
                 <meta name='author' content='Iris Dante' />
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-                <meta property="og:url" content='/' key="ogurl" />
-                <meta property="og:image" content='/image.png' key="ogimage" />
-                <meta property="og:site_name" content='IrisDAnte' key="ogsitename" />
-                <meta property="og:title" content='Time | IrisDAnte' key="ogtitle" />
-                <meta property="og:description" content='A simple website that shows time in dynamic way' key="ogdesc" />
+                <meta property="og:url" content="https://time-ruddy.vercel.app/" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Time | IrisDAnte" />
+                <meta property="og:description" content="A simple website to display time in a dynamic way" />
+                <meta property="og:image" content="https://time-ruddy.vercel.app/image.png" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:domain" content="time-ruddy.vercel.app" />
+                <meta property="twitter:url" content="https://time-ruddy.vercel.app/" />
+                <meta name="twitter:title" content="Time | IrisDAnte" />
+                <meta name="twitter:description" content="A simple website to display time in a dynamic way" />
+                <meta name="twitter:image" content="https://time-ruddy.vercel.app/image.png" />
             </Head>
             <body>
                 <div className={styles.timeContainer}>
