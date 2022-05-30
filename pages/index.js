@@ -152,12 +152,6 @@ export default function Home() {
                 <meta property='og:title' content='Time | IrisDAnte' />
                 <meta property='og:description' content='A simple website to display time in a dynamic way' />
                 <meta property='og:image' content='https://time-ruddy.vercel.app/image.png' />
-                <meta name='twitter:card' content='summary_large_image' />
-                <meta property='twitter:domain' content='time-ruddy.vercel.app' />
-                <meta property='twitter:url' content='https://time-ruddy.vercel.app/' />
-                <meta name='twitter:title' content='Time | IrisDAnte' />
-                <meta name='twitter:description' content='A simple website to display time in a dynamic way' />
-                <meta name='twitter:image' content='https://time-ruddy.vercel.app/image.png' />
             </Head>
             <div className={styles.timeContainer}>
                 <p className={styles.clock}>{(hasMounted) ? time.toLocaleTimeString('en') : 'Loading'}</p>
