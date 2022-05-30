@@ -147,13 +147,13 @@ export default function Home() {
                 <meta name='keywords' content='Time, time, code' />
                 <meta name='author' content='Iris Dante' />
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-                <meta property='og:url' content='https://time-ruddy.vercel.app/' />
+                <meta property='og:url' content='/' />
                 <meta property='og:type' content='website' />
                 <meta property='og:title' content='Time | IrisDAnte' />
                 <meta property='og:description' content='A simple website to display time in a dynamic way' />
-                <meta property='og:image' content='https://time-ruddy.vercel.app/image.png' />
-                <meta property="og:image:width" content="64" />
-                <meta property="og:image:height" content="64" />
+                <meta property='og:image' content='/image.png' />
+                <meta property="og:image:width" content="32" />
+                <meta property="og:image:height" content="32" />
             </Head>
             <div className={styles.timeContainer}>
                 <p className={styles.clock}>{(hasMounted) ? time.toLocaleTimeString('en') : 'Loading'}</p>
