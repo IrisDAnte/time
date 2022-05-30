@@ -127,14 +127,17 @@ const sky = {
 
 export default function Home() {
     const [time, setTime] = useState(new Date())
+    const [hasMounted, setHasMounted] = useState(false)
     useEffect(() => {
-        const id = setInterval(() => setTime(new Date()), 1000)
-        document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[time.getHours()].to}, #${sky[time.getHours()].from})`
-        document.querySelector(`.${styles.axis}`).style.top = sky[time.getHours()].pos
-        return () => {
-            clearInterval(id)
-        }
+        setHasMounted(true)
+        const id = setInterval(() => {
+            setTime(new Date())
+            document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[time.getHours()].to}, #${sky[time.getHours()].from})`
+            document.querySelector(`.${styles.axis}`).style.top = sky[time.getHours()].pos
+        }, 1000)
+        return () => clearInterval(id)
     })
+    if (!hasMounted) return null
     return (
         <>
             <Head>
@@ -157,15 +160,13 @@ export default function Home() {
                 <meta name="twitter:description" content="A simple website to display time in a dynamic way" />
                 <meta name="twitter:image" content="https://time-ruddy.vercel.app/image.png" />
             </Head>
-            <body>
-                <div className={styles.timeContainer}>
-                    <p className={styles.clock}>{(typeof time == 'object') ? time.toLocaleTimeString('en-US') : time}</p>
-                    <p className={styles.date}>{(typeof time == 'object') ? time.toDateString() : time}</p>
-                </div>
-                <div className={styles.sky}>
-                    <div className={styles.axis}></div>
-                </div>
-            </body>
+            <div className={styles.timeContainer}>
+                <p className={styles.clock}>{time.toLocaleTimeString('en')}</p>
+                <p className={styles.date}>{time.toDateString()}</p>
+            </div>
+            <div className={styles.sky}>
+                <div className={styles.axis}></div>
+            </div>
         </>
     )
 }
