@@ -148,11 +148,11 @@ export default function Home() {
                 <meta name='author' content='Iris Dante' />
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
                 <meta name='theme-color' content='#bdb4f8'/>
-                <meta property='og:url' content='/' />
+                <meta property='og:url' content='https://time-ruddy.vercel.app/' />
                 <meta property='og:type' content='website' />
                 <meta property='og:title' content='Time | IrisDAnte' />
                 <meta property='og:description' content='A simple website to display time in a dynamic way' />
-                <meta property='og:image' content='/ogImage.png' />
+                <meta property='og:image' content='https://time-ruddy.vercel.app/ogImage.png' />
                 <meta property="og:image:width" content="64" />
                 <meta property="og:image:height" content="64" />
             </Head>
