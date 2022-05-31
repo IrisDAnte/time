@@ -1,0 +1,25 @@
+.star {
+    width: 0.05vmin;
+    height: 0.05vmin;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0.05vmin 0.05vmin white;
+    animation: spark 1s linear 0s infinite;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    opacity: 0.1;
+    transition-duration: 0.5s;
+}
+
+@keyframes spark {
+    0% {
+        box-shadow: 0 0 0.05vmin 0.05vmin white;
+    }
+    50% {
+        box-shadow: 0 0 0.1vmin 0.1vmin white;
+    }
+    100% {
+        box-shadow: 0 0 0.05vmin 0.05vmin white;
+    }
+}

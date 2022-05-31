@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, { useState, useEffect } from 'react'
+import Star from '../component/star'
 import styles from '../styles/Home.module.css'
 
 const sky = {
@@ -128,15 +129,22 @@ const sky = {
 export default function Home() {
     const [time, setTime] = useState(new Date())
     const [hasMounted, setHasMounted] = useState(false)
+    const [star, setStar] = useState({ density: 0 })
     useEffect(() => {
+        document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[time.getHours()].to}, #${sky[time.getHours()].from})`
+        document.querySelector(`.${styles.axis}`).style.top = sky[time.getHours()].pos
         const id = setInterval(() => {
+            // const lel = new Date()
+            // lel.setHours(lel.getHours() + (0))
+            // document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[lel.getHours()].to}, #${sky[lel.getHours()].from})`
+            // document.querySelector(`.${styles.axis}`).style.top = sky[lel.getHours()].pos
             document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[time.getHours()].to}, #${sky[time.getHours()].from})`
             document.querySelector(`.${styles.axis}`).style.top = sky[time.getHours()].pos
             setTime(new Date())
         }, 1000)
         setHasMounted(true)
         return () => clearInterval(id)
-    }, [])
+    }, [hasMounted])
     return (
         <>
             <Head>
@@ -147,7 +155,7 @@ export default function Home() {
                 <meta name='keywords' content='Time, time, code' />
                 <meta name='author' content='Iris Dante' />
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-                <meta name='theme-color' content='#bdb4f8'/>
+                <meta name='theme-color' content='#bdb4f8' />
                 <meta property='og:url' content='https://time-ruddy.vercel.app/' />
                 <meta property='og:type' content='website' />
                 <meta property='og:title' content='Time | IrisDAnte' />
@@ -158,10 +166,11 @@ export default function Home() {
             </Head>
             <div className={styles.timeContainer}>
                 <p className={styles.clock}>{(hasMounted) ? time.toLocaleTimeString('en') : 'Loading'}</p>
-                <p className={styles.date}>{(hasMounted) ? time.toDateString() : 'Loading'}</p>
+                <p className={styles.date} onClick={() => setStar(past => ({ ...past, density: 0.05 }))}>{(hasMounted) ? time.toDateString() : 'Loading'}</p>
             </div>
             <div className={styles.sky}>
                 <div className={styles.axis}></div>
+                <Star density={star.density}/>
             </div>
         </>
     )
