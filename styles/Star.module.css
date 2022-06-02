@@ -16,10 +16,102 @@
     0% {
         box-shadow: 0 0 0.05vmin 0.05vmin white;
     }
+
     50% {
         box-shadow: 0 0 0.1vmin 0.1vmin white;
     }
+
     100% {
         box-shadow: 0 0 0.05vmin 0.05vmin white;
     }
+}
+
+/* .fallingStarContainer div {
+    width: 0.1vmax;
+    height: 0.1vmax;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0.1vmax 0.1vmax white;
+    position: absolute;
+    top: 20vh;
+    animation: fall 1s linear 0s infinite;
+    opacity: 0;
+} */
+
+@keyframes fall {
+    0% {
+        left: var(--origin);
+        opacity: 0;
+    }
+
+    10% {
+        left: calc(var(--origin) + 2vmax);
+        opacity: 0.1;
+    }
+
+    20% {
+        left: calc(var(--origin) + 4vmax);
+        opacity: 0.2;
+    }
+
+    30% {
+        left: calc(var(--origin) + 6vmax);
+        opacity: 0.3;
+    }
+
+    40% {
+        left: calc(var(--origin) + 8vmax);
+        opacity: 0.4;
+    }
+
+    50% {
+        left: calc(var(--origin) + 10vmax);
+        opacity: 0.5;
+    }
+
+    60% {
+        left: calc(var(--origin) + 12vmax);
+        opacity: 0.6;
+    }
+
+    70% {
+        left: calc(var(--origin) + 14vmax);
+        opacity: 0.7;
+    }
+
+    80% {
+        left: calc(var(--origin) + 16vmax);
+        opacity: 0.8;
+    }
+
+    90% {
+        left: calc(var(--origin) + 18vmax);
+        opacity: 0.9;
+    }
+
+    100% {
+        left: calc(var(--origin) + 20vmax);
+        opacity: 1;
+    }
+}
+
+.fallingStarContainer div {
+    position: fixed;
+    top: 50%;
+    left: var(--origin);
+    opacity: 0;
+    width: 0.05vmin;
+    height: 0.05vmin;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.fallingStarContainer div::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
 }

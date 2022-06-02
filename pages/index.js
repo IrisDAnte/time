@@ -129,8 +129,13 @@ const sky = {
 export default function Home() {
     const [time, setTime] = useState(new Date())
     const [hasMounted, setHasMounted] = useState(false)
-    const [star, setStar] = useState({ density: 0 })
+    const [star, setStar] = useState({ density: 0, rate: 0 })
     useEffect(() => {
+        setStar(past => ({
+            ...past,
+            density: 0.01 * Math.floor(Math.random() * 10),
+            rate: 0.01 * Math.floor(Math.random() * 10)
+        }))
         document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[time.getHours()].to}, #${sky[time.getHours()].from})`
         document.querySelector(`.${styles.axis}`).style.top = sky[time.getHours()].pos
         const id = setInterval(() => {
@@ -155,22 +160,19 @@ export default function Home() {
                 <meta name='keywords' content='Time, time, code' />
                 <meta name='author' content='Iris Dante' />
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-                <meta name='theme-color' content='#bdb4f8' />
-                <meta property='og:url' content='https://time-ruddy.vercel.app/' />
-                <meta property='og:type' content='website' />
-                <meta property='og:title' content='Time | IrisDAnte' />
-                <meta property='og:description' content='A simple website to display time in a dynamic way' />
-                <meta property='og:image' content='https://time-ruddy.vercel.app/ogImage.png' />
-                <meta property="og:image:width" content="64" />
-                <meta property="og:image:height" content="64" />
+                <meta name="theme-color" content="#FF3366"/>
+                <meta property="og:url" content="https://time-ruddy.vercel.app/"/>
+                <meta property="og:title" content="Time | IrisDAnte" />
+                <meta property="og:description" content="A simple website to display time in a dynamic way" />
+                <meta property="og:image" content="https://time-ruddy.vercel.app/image.png" />
             </Head>
             <div className={styles.timeContainer}>
                 <p className={styles.clock}>{(hasMounted) ? time.toLocaleTimeString('en') : 'Loading'}</p>
-                <p className={styles.date} onClick={() => setStar(past => ({ ...past, density: 0.05 }))}>{(hasMounted) ? time.toDateString() : 'Loading'}</p>
+                <p className={styles.date} onClick={() => setStar(past => ({ ...past, density: 0.1, rate: 0.1 }))}>{(hasMounted) ? time.toDateString() : 'Loading'}</p>
             </div>
             <div className={styles.sky}>
                 <div className={styles.axis}></div>
-                <Star density={star.density}/>
+                <Star density={star.density} rate={star.rate}/>
             </div>
         </>
     )
