@@ -9,20 +9,41 @@
     top: 50vh;
     left: 50vw;
     opacity: 0.1;
-    transition-duration: 0.5s;
 }
 
 @keyframes spark {
     0% {
-        box-shadow: 0 0 0.05vmin 0.05vmin white;
-    }
-
-    50% {
         box-shadow: 0 0 0.1vmin 0.1vmin white;
     }
 
-    100% {
+    1%,
+    30% {
         box-shadow: 0 0 0.05vmin 0.05vmin white;
+    }
+
+    31%,
+    40% {
+        box-shadow: 0 0 0.1vmin 0.1vmin white;
+    }
+
+    41%,
+    70% {
+        box-shadow: 0 0 0.05vmin 0.05vmin white;
+    }
+
+    71%,
+    80% {
+        box-shadow: 0 0 0.1vmin 0.1vmin white;
+    }
+
+    81%,
+    90% {
+        box-shadow: 0 0 0.05vmin 0.05vmin white;
+    }
+
+    91%,
+    100% {
+        box-shadow: 0 0 0.1vmin 0.1vmin white;
     }
 }
 
@@ -41,7 +62,7 @@
     content: "";
     position: fixed;
     transform: translateY(-50%);
-    width: 300px;
-    height: 1px;
+    width: 15vmax;
+    height: 0.05rem;
     background: linear-gradient(90deg, #fff, transparent);
 }

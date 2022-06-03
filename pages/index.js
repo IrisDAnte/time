@@ -139,10 +139,6 @@ export default function Home() {
         document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[time.getHours()].to}, #${sky[time.getHours()].from})`
         document.querySelector(`.${styles.axis}`).style.top = sky[time.getHours()].pos
         const id = setInterval(() => {
-            // const lel = new Date()
-            // lel.setHours(lel.getHours() + (0))
-            // document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[lel.getHours()].to}, #${sky[lel.getHours()].from})`
-            // document.querySelector(`.${styles.axis}`).style.top = sky[lel.getHours()].pos
             document.querySelector(`.${styles.sky}`).style.backgroundImage = `linear-gradient(180deg, #${sky[time.getHours()].to}, #${sky[time.getHours()].from})`
             document.querySelector(`.${styles.axis}`).style.top = sky[time.getHours()].pos
             setTime(new Date())

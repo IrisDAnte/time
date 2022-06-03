@@ -14,8 +14,9 @@ export default function Star({ density, rate }) {
                 target.style.top = `${randomInt(0, 100)}vh`
                 target.style.left = `${randomInt(0, 100)}vw`
                 target.style.opacity = (Math.random() * (1 - 0.1) + 0.1).toFixed(1)
+                target.style.animationDuration = `${(Math.random() * (1 - 0.1) + 0.1).toFixed(1)}s`
                 document.querySelector('#starContainer').appendChild(target)
-                await sleep(100 * randomInt(1, 10))
+                await sleep(100 * randomInt(10, 20))
             } else if (el.length > limit && limit > 0) el[Math.floor(Math.random() * el.length)].remove()
         }
         const fallingStar = async () => {
