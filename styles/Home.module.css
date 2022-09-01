@@ -11,7 +11,7 @@
 
 .clock {
   font-size: 10vw;
-  background-image: linear-gradient(45deg, #dd78b4, #FEFFFF);
+  background-image: linear-gradient(45deg, red, blue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
